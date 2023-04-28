@@ -96,4 +96,8 @@ html {
   border-radius: 50%;
 }
 
+.hide {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
