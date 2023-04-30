@@ -29,6 +29,7 @@ html {
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-size: 20px;
   }
 
   .keyboard {
@@ -67,7 +68,7 @@ html {
     background-color: blueviolet;
   }
 
-  .keyboard__key:active {
+  .keyboard__key.active {
     background-color: darkblue;
     border-radius: 20px;
   }
@@ -76,26 +77,32 @@ html {
     background: #444;
   }
 
-  .backspace, .shift-left, .capslock {
+  .Backspace, .ShiftLeft, .CapsLock {
     width: 100px;
   }
 
-  .tab, .del{
+  .Tab, .Delete{
     width: 50px;
   }
 
-  .space {
+  .Space {
     width: 330px;
   }
 
-  .enter, .shift-right {
+  .Enter, .ShiftRight {
     width: 86px;
   }
 
-  .key:active {
+  .key.active {
     border-radius: 50%;
   }
 
   .hide {
     display: none;
+  }
+
+  .description {
+    font-size: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
   }
