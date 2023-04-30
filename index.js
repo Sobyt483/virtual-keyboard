@@ -14,6 +14,7 @@ const keyMatrix = [
   [['keyboard__key ShiftLeft', 'Shift'], ['keyboard__key key KeyZ', 'z', 'Z', 'Z', 'z', 'я', 'Я', 'Я', 'я'], ['keyboard__key key KeyX', 'x', 'X', 'X', 'x', 'ч', 'Ч', 'Ч', 'ч'], ['keyboard__key key KeyC', 'c', 'C', 'C', 'c', 'с', 'С', 'С', 'с'], ['keyboard__key key KeyV', 'v', 'V', 'V', 'v', 'м', 'М', 'М', 'м'], ['keyboard__key key KeyB', 'b', 'B', 'B', 'b', 'и', 'И', 'И', 'и'], ['keyboard__key key KeyN', 'n', 'N', 'N', 'n', 'т', 'Т', 'Т', 'т'], ['keyboard__key key KeyM', 'm', 'M', 'M', 'm', 'ь', 'Ь', 'Ь', 'ь'], ['keyboard__key key Comma', ',', '<', ',', '<', 'б', 'Б', 'Б', 'б'], ['keyboard__key key Period', '.', '>', '.', '>', 'ю', 'Ю', 'Ю', 'ю'], ['keyboard__key key Slash', '/', '?', '/', '?', '.', ',', '.', ','], ['keyboard__key ArrowUp', '▲'], ['keyboard__key ShiftRight', 'Shift']],
   [['keyboard__key ControlLeft', 'Ctrl'], ['keyboard__key MetaLeft', 'Win'], ['keyboard__key AltLeft', 'Alt'], ['keyboard__key Space', ' '], ['keyboard__key AltRight', 'Alt'], ['keyboard__key ArrowLeft', '◄'], ['keyboard__key ArrowDown', '▼'], ['keyboard__key ArrowRight', '►'], ['keyboard__key ControlRight', 'Ctrl']],
 ];
+
 const createKey = (arr) => {
   const key = document.createElement('div');
   key.className = `${arr[0]}`;
@@ -142,9 +143,6 @@ const showCurrentKey = (key) => {
       });
     }
   });
-  if (arrayNotInsert.includes(result)){
-    return ''
-  }
   return result;
 };
 
@@ -170,10 +168,10 @@ const actionDel = (ar) => {
 };
 const actionKey = (ar, key) => {
   const area = ar;
-  const index = area.selectionStart;
+  const index = area.selectionEnd;
   area.value = area.value.substring(0, area.selectionStart) + key
   + area.value.substring(area.selectionEnd, area.value.length);
-  area.setSelectionRange(index + 1, index + 1);
+  area.setSelectionRange(index+1, index+1);
 };
 const actionTab = (ar) => {
   const area = ar;
@@ -209,6 +207,14 @@ const chooseAction = (key) => {
   }
 }
 
+keyBoard.onmousedown = function(e) {
+  if (document.activeElement === textarea) {
+    e.preventDefault();
+  }
+};
+
+document.addEventListener('click', (e) => {
+})
 document.addEventListener('keydown', (e) => {
   e.preventDefault();
   const activeKey = document.querySelector(`.${e.code}`);
@@ -223,7 +229,15 @@ document.addEventListener('keyup', (e) => {
 const keys = document.querySelectorAll('.keyboard__key');
 keys.forEach((el) => {
   el.addEventListener('click', (e) => {
-    console.log(e)
     const key = showCurrentKey(e.currentTarget)
+    chooseAction(key)
   })
+})
+
+const capsLock = document.querySelector('.CapsLock')
+const shiftLeft = document.querySelector('.ShiftLeft')
+const shiftRight = document.querySelector('.ShiftRight')
+
+capsLock.addEventListener('keydown', (e) => {
+  console.log(1)
 })
