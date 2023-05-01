@@ -1,0 +1,110 @@
+html {
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  scroll-behavior: smooth;
+  padding: 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 32px;
+  color: green;
+  text-align: center;
+}
+
+.textarea {
+  min-width: 704px;
+  min-height: 150px;
+  justify-self: center;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.keyboard {
+  width: 704px;
+  margin: 0 auto;
+  padding: 15px 10px;
+  background: #888888;
+  border: 3px solid #222222;
+  border-radius: 5px;
+}
+
+.keyboard__row {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+.keyboard__key {
+  width: 40px;
+  height: 40px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #333;
+  border-radius: 3px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s;
+}
+
+.keyboard__key:hover {
+  background-color: blueviolet;
+}
+
+.keyboard__key.active {
+  background-color: darkblue;
+  border-radius: 20px;
+}
+
+.key {
+  background: #444;
+}
+
+.Backspace, .ShiftLeft, .CapsLock {
+  width: 100px;
+}
+
+.Tab, .Delete {
+  width: 50px;
+}
+
+.Space {
+  width: 330px;
+}
+
+.Enter, .ShiftRight {
+  width: 86px;
+}
+
+.key.active {
+  border-radius: 50%;
+}
+
+.hide {
+  display: none;
+}
+
+.description {
+  font-size: 20px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
